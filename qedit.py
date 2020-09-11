@@ -14,6 +14,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1118, 931)
+        MainWindow.setFixedWidth(1118)
+        MainWindow.setFixedHeight(931)
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans Mono")
         MainWindow.setFont(font)
