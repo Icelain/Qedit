@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'qedit.ui'
-#
-# Created by: PyQt5 UI code generator 5.14.1
-#
-# WARNING! All changes made in this file will be lost!
+# usr/bin/python3
 
-import os
+# logic starts at 197 and ends at 324
+
+import os, webbrowser
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -16,8 +14,10 @@ class Ui_MainWindow(object):
         MainWindow.resize(1118, 931)
         MainWindow.setFixedWidth(1118)
         MainWindow.setFixedHeight(931)
+
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans Mono")
+
         MainWindow.setFont(font)
         MainWindow.setStyleSheet("background-color:#353638;\n"
 "\n"
@@ -38,12 +38,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.qedit_label = QtWidgets.QLabel(self.horizontalLayoutWidget)
+
         font = QtGui.QFont()
         font.setFamily("Fira Mono")
         font.setPointSize(18)
+
         self.qedit_label.setFont(font)
         self.qedit_label.setStyleSheet("QLabel::!hover{color:#1fade0;}\n"
 "QLabel::hover{color: cyan;}")
+
+
         self.qedit_label.setAlignment(QtCore.Qt.AlignCenter)
         self.qedit_label.setObjectName("qedit_label")
         self.horizontalLayout.addWidget(self.qedit_label)
@@ -51,63 +55,88 @@ class Ui_MainWindow(object):
         self.textspace.setStyleSheet("color:white;")
         self.textspace.setGeometry(QtCore.QRect(0, 60, 1121, 821))
         self.textspace.setAcceptRichText(True)
+
         font = QtGui.QFont()
         font.setFamily("Monospace")
         font.setPointSize(13)
+
         self.textspace.setFont(font)
         self.textspace.setTextColor(QtGui.QColor(255, 255, 255))
         self.textspace.setObjectName("textspace")
         self.qedit_version = QtWidgets.QLabel(self.centralwidget)
         self.qedit_version.setGeometry(QtCore.QRect(950, 0, 160, 49))
+
         font = QtGui.QFont()
         font.setFamily("Fira Mono")
         font.setPointSize(14)
+
         self.qedit_version.setFont(font)
         self.qedit_version.setStyleSheet("color:orange;")
         self.qedit_version.setObjectName("qedit_version")
         self.editingFile = QtWidgets.QLabel(self.centralwidget)
         self.editingFile.setGeometry(QtCore.QRect(0, 8, 217, 41))
+
         font = QtGui.QFont()
         font.setFamily("Fira Mono")
         font.setPointSize(14)
+
         self.editingFile.setFont(font)
         self.editingFile.setStyleSheet("color:lightgreen;")
         self.editingFile.setText("")
         self.editingFile.setObjectName("editingFile")
+
         MainWindow.setCentralWidget(self.centralwidget)
+
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1118, 23))
+
+
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans")
         font.setPointSize(11)
+
+
         self.menubar.setFont(font)
         self.menubar.setStyleSheet("color:white;")
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
+
+
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans")
         font.setPointSize(11)
+
+
         self.menuFile.setFont(font)
         self.menuFile.setStyleSheet("QMenu:selected{color:#346fed; }")
         self.menuFile.setObjectName("menuFile")
         self.menuFont = QtWidgets.QMenu(self.menubar)
+
+
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans")
         font.setPointSize(11)
+
+
         self.menuFont.setFont(font)
         self.menuFont.setStyleSheet("QMenu:selected{color:#346fed; }")
         self.menuFont.setObjectName("menuFont")
         self.menuHelp = QtWidgets.QMenu(self.menubar)
+
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans")
         font.setPointSize(11)
+
         self.menuHelp.setFont(font)
         self.menuHelp.setStyleSheet("QMenu:selected{color:#346fed; }")
         self.menuHelp.setObjectName("menuHelp")
         MainWindow.setMenuBar(self.menubar)
+
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
+
         self.actionOpen = QtWidgets.QAction(MainWindow)
         self.actionOpen.setObjectName("actionOpen")
         self.actionClear = QtWidgets.QAction(MainWindow)
@@ -122,6 +151,8 @@ class Ui_MainWindow(object):
         self.actionGoto_Website.setObjectName("actionGoto_Website")
         self.actionFont_color = QtWidgets.QAction(MainWindow)
         self.actionFont_color.setObjectName("actionFont_color")
+
+
         self.menuFile.addAction(self.actionOpen)
         self.menuFile.addAction(self.actionClear)
         self.menuFile.addAction(self.actionSave)
@@ -132,12 +163,15 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuFont.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
+
+
         self.actionSave_As.triggered.connect(self.saveAsAction)
         self.actionSave.triggered.connect(self.saveAction)
         self.actionChange_Font.triggered.connect(self.changeFont)
         self.actionClear.triggered.connect(self.clearWindow)
         self.actionOpen.triggered.connect(self.fbrowserOpen)
         self.actionFont_color.triggered.connect(self.changeFontColor)
+        self.actionGoto_Website.triggered.connect(self.openWebsite)
 
 
         self.retranslateUi(MainWindow)
@@ -145,6 +179,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
+
         MainWindow.setWindowTitle(_translate("MainWindow", "Qedit"))
         self.qedit_label.setText(_translate("MainWindow", "Qedit"))
         self.qedit_version.setText(_translate("MainWindow", "Version- 0.0.1"))
@@ -158,6 +193,9 @@ class Ui_MainWindow(object):
         self.actionChange_Font.setText(_translate("MainWindow", "Change Font"))
         self.actionGoto_Website.setText(_translate("MainWindow", "Goto Website"))
         self.actionFont_color.setText(_translate("MainWindow", "Font color"))
+
+    def openWebsite(self):
+        webbrowser.open("https://github.com/Icelain/Qedit")
 
     def changeFontColor(self):
         color = QtWidgets.QColorDialog.getColor()
@@ -289,6 +327,7 @@ class Ui_MainWindow(object):
 
 
 if __name__ == "__main__":
+
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
@@ -296,3 +335,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
